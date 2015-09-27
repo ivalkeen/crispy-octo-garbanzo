@@ -3,6 +3,9 @@ $LOAD_PATH.unshift("./app")
 require "minitest/autorun"
 require "webmock/minitest"
 require "yaml"
+require "dotenv"
+
+Dotenv.load(".env.test")
 
 def fixture(fixture_file)
   path = Pathname.new(File.dirname(__FILE__)).join("fixtures/#{fixture_file}.yml")
