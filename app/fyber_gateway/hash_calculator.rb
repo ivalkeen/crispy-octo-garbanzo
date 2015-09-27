@@ -1,6 +1,6 @@
 require "digest/sha1"
 
-module FyberGateway
+class FyberGateway
   class HashCalculator
     def initialize(params, api_key)
       @params = params
