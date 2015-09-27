@@ -1,6 +1,7 @@
 require "cuba"
 require "cuba/safe"
 require "cuba/render"
+require "tilt/erb"
 require "erb"
 
 Cuba.use Rack::Session::Cookie, key: "offers-loader-session", secret: "__a_very_long_string__"
