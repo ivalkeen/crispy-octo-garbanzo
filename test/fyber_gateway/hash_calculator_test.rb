@@ -4,7 +4,7 @@ require "fyber_gateway/hash_calculator"
 class FyberGateway
   class TestHashCalculator < Minitest::Test
     def setup
-      @fixture = fixture(:hash_calculator)
+      @fixture = fixture(:example)
       @calculator = FyberGateway::HashCalculator.new(@fixture["params"], @fixture["api_key"])
     end
 
