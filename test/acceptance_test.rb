@@ -1,6 +1,5 @@
-$LOAD_PATH.unshift("./app")
+require "test_helper"
 
-require "minitest/autorun"
 require "server"
 require "capybara"
 
@@ -8,9 +7,6 @@ Capybara.app = Cuba
 
 class TestApplication < Minitest::Test
   include Capybara::DSL
-
-  def setup
-  end
 
   def test_ui
     visit "/"
