@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Content-Length: 30824
+Status: 200 OK
+X-Sponsorpay-Response-Signature: badsignature
+X-Rack-Cache: miss
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Date: Sun, 27 Sep 2015 17:52:00 GMT
+Pragma: no-cache
+P3P: CP="NON DSP COR CURa IVAa IVDa CONa OUR NOR STA"
+X-Sponsorpay-Response-Code: OK
+X-UA-Compatible: IE=Edge,chrome=1
+ETag: "7e4ea559b01f4a43e1b89b5d33762fbd"
+X-Runtime: 0.257713
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+X-Powered-By: Phusion Passenger Enterprise 5.0.13
+Server: nginx + Phusion Passenger 5.0.13
+
+{"code":"OK","message":"Ok","count":30,"pages":3,"information":{"app_name":"Demo iframe for publisher - do not touch","appid":157,"virtual_currency":"Coins","country":"DE","language":"DE","support_url":"http://offer.fyber.com/mobile/support?appid=157&client=api&uid=player1"},"offers":[]}

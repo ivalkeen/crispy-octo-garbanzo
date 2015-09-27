@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Content-Length: 30824
+Status: 200 OK
+X-Sponsorpay-Response-Signature: 66d85d50dcf916ef95ab1d4f654bc78ab9069dd6
+X-Rack-Cache: miss
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Date: Sun, 27 Sep 2015 17:52:00 GMT
+Pragma: no-cache
+P3P: CP="NON DSP COR CURa IVAa IVDa CONa OUR NOR STA"
+X-Sponsorpay-Response-Code: OK
+X-UA-Compatible: IE=Edge,chrome=1
+ETag: "7e4ea559b01f4a43e1b89b5d33762fbd"
+X-Runtime: 0.257713
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+X-Powered-By: Phusion Passenger Enterprise 5.0.13
+Server: nginx + Phusion Passenger 5.0.13
+
+{"code":"OK","message":"OK","count":1,"pages":1,"information":{"app_name":"SPTestApp","appid":157,"virtual_currency":"Coins","country":"US","language":"EN","support_url":"http://iframe.fyber.com/mobile/DE/157/my_offers"},"offers":[{"title":"TapFish","offer_id":13554,"teaser":"DownloadandSTART","required_actions":"DownloadandSTART","link":"http://iframe.fyber.com/mbrowser?appid=157&lpid=11387&uid=player1","offer_types":[{"offer_type_id":101,"readable":"Download"},{"offer_type_id":112,"readable":"Free"}],"thumbnail":{"lowres":"http://cdn.fyber.com/assets/1808/icon175x175-2_square_60.png","hires":"http://cdn.fyber.com/assets/1808/icon175x175-2_square_175.png"},"payout":90,"time_to_payout":{"amount":1800,"readable":"30minutes"}}]}
