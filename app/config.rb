@@ -1,21 +1,18 @@
+# Facade for the configuration
+#
 class Config
-  class << self
-    def api_key
-      ENV["API_KEY"]
-    end
+  # Fyber application API key (keep it private)
+  API_KEY = ENV["API_KEY"].freeze
 
-    def secret
-      ENV["SECRET"]
-    end
+  # Rack secret for encoding session
+  SECRET = ENV["SECRET"].freeze
 
-    def default_params
-      {
-        appid: ENV["APPID"],
-        device_id: ENV["DEVICE_ID"],
-        locale: ENV["LOCALE"],
-        ip: ENV["IP"],
-        offer_types: ENV["OFFER_TYPES"],
-      }
-    end
-  end
+  # Default request parameters, provided by Fyber
+  DEFAULT_PARAMS = {
+    appid: ENV["APPID"],
+    device_id: ENV["DEVICE_ID"],
+    locale: ENV["LOCALE"],
+    ip: ENV["IP"],
+    offer_types: ENV["OFFER_TYPES"],
+  }.freeze
 end

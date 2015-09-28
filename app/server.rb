@@ -1,3 +1,6 @@
+#
+# Application entry point
+
 $LOAD_PATH.unshift("./app")
 
 require "cuba"
@@ -10,7 +13,7 @@ require "erb"
 require "config"
 require "fyber_gateway"
 
-Cuba.use Rack::Session::Cookie, key: "offers-loader-session", secret: Config.secret
+Cuba.use Rack::Session::Cookie, key: "offers-loader-session", secret: Config::SECRET
 
 Cuba.plugin Cuba::Safe
 Cuba.plugin Cuba::Render
@@ -37,8 +40,10 @@ Cuba.define do
 
   on post do
     on root do
+      # validate presence of `uid` only, because `page` and `pub0` are not require according
+      # to documentation
       on param("uid") do |uid|
-        params = Config.default_params.merge(
+        params = Config::DEFAULT_PARAMS.merge(
           timestamp: Time.now.utc.to_i,
           uid: uid,
           page: req.POST["page"],
@@ -46,7 +51,7 @@ Cuba.define do
         )
 
         begin
-          @offers = FyberGateway.new(params, Config.api_key).load_offers
+          @offers = FyberGateway.new(params, Config::API_KEY).load_offers
           render("results")
         rescue FyberGateway::SignatureInvalidError => e
           @error = e.message

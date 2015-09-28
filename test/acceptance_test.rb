@@ -75,8 +75,8 @@ class TestApplication < Minitest::Test
   private
 
   def build_url
-    params = Config.default_params.merge(uid: "player1", page: "2", pub0: "campaign2", timestamp: Time.now.utc.to_i.to_s)
-    FyberGateway::OffersRequest.new(params, Config.api_key).url
+    params = Config::DEFAULT_PARAMS.merge(uid: "player1", page: "2", pub0: "campaign2", timestamp: Time.now.utc.to_i.to_s)
+    FyberGateway::OffersRequest.new(params, Config::API_KEY).url
   end
 
   def fill_form
