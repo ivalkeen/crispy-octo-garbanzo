@@ -37,7 +37,7 @@ class TestApplication < Minitest::Test
     fill_form
 
     assert page.has_content?("TapFish")
-    assert page.has_content?("Payout: 90")
+    assert page.has_content?("Payout: 90 Coins")
   end
 
   def test_signature_error_rendered

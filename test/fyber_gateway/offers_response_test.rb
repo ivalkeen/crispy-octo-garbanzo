@@ -25,6 +25,10 @@ class FyberGateway
       assert_equal("OK", @response.message)
     end
 
+    def test_currency
+      assert_equal("Coins", @response.currency)
+    end
+
     def test_raw
       assert_instance_of(Hash, @response.raw)
       assert_instance_of(Array, @response.raw["offers"])

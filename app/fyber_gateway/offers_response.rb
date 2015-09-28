@@ -35,6 +35,11 @@ class FyberGateway
       @response["message"]
     end
 
+    # @returns [String] Currency
+    def currency
+      @response["information"]["virtual_currency"]
+    end
+
     # @returns [Hash] Hash representation of the original response
     def raw
       @response

@@ -18,7 +18,7 @@
         </div>
         <div class="col-xs-9 col-sm-10 col-md-10 col-lg-11">
           <h4><%= h(offer["title"]) %></h4>
-          <p>Payout: <%= h(offer["payout"]) %></p>
+          <p>Payout: <%= "#{h(offer["payout"])} #{h(@offers_response.currency)}" %></p>
         </div>
       </div>
       <hr />
