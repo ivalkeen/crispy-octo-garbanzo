@@ -18,12 +18,7 @@ class TestApplication < Minitest::Test
 
   def teardown
     Timecop.return
-  end
-
-  def test_fill_form
-    fill_form
-
-    assert page.has_content?("Offers")
+    WebMock.reset!
   end
 
   def test_empty_message
@@ -60,7 +55,7 @@ class TestApplication < Minitest::Test
 
     fill_form
 
-    msg = "Server responded with error: An invalid or expired timestamp was given as a parameter in the request."
+    msg = "HTTP status: 400"
     assert page.has_content?(msg)
   end
 

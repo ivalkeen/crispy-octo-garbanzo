@@ -43,15 +43,17 @@ Cuba.define do
       # validate presence of `uid` only, because `page` and `pub0` are not require according
       # to documentation
       on param("uid") do |uid|
+        @current_page = req.POST["page"].to_i
+
         params = Config::DEFAULT_PARAMS.merge(
           timestamp: Time.now.utc.to_i,
           uid: uid,
-          page: req.POST["page"],
+          page: @current_page,
           pub0: req.POST["pub0"],
         )
 
         begin
-          @offers = FyberGateway.new(params, Config::API_KEY).load_offers
+          @offers_response = FyberGateway.new(params, Config::API_KEY).load_offers
           render("results")
         rescue FyberGateway::SignatureInvalidError => e
           @error = e.message

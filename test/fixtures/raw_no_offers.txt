@@ -2,7 +2,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Content-Length: 30824
 Status: 200 OK
-X-Sponsorpay-Response-Signature: b0249c9d02811ff8a6d5f5d57a9b6e634cbb4765
+X-Sponsorpay-Response-Signature: e05640de41de88523ac45432c3398fa107eaba80
 X-Rack-Cache: miss
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Date: Sun, 27 Sep 2015 17:52:00 GMT
@@ -16,4 +16,4 @@ Expires: Fri, 01 Jan 1990 00:00:00 GMT
 X-Powered-By: Phusion Passenger Enterprise 5.0.13
 Server: nginx + Phusion Passenger 5.0.13
 
-{"code":"OK","message":"Ok","count":30,"pages":3,"information":{"app_name":"Demo iframe for publisher - do not touch","appid":157,"virtual_currency":"Coins","country":"DE","language":"DE","support_url":"http://offer.fyber.com/mobile/support?appid=157&client=api&uid=player1"},"offers":[]}
+{"code":"OK","message":"Ok","count":0,"pages":0,"information":{"app_name":"Demo iframe for publisher - do not touch","appid":157,"virtual_currency":"Coins","country":"DE","language":"DE","support_url":"http://offer.fyber.com/mobile/support?appid=157&client=api&uid=player1"},"offers":[]}

@@ -7,11 +7,15 @@ class TestFyberGateway < Minitest::Test
     @gateway = FyberGateway.new(@fixture["params"], @fixture["api_key"])
   end
 
+  def teardown
+    WebMock.reset!
+  end
+
   def test_get_response_no_offers
     WebMock.stub_request(:get, @fixture["url"])
       .to_return(fixed_response(:raw_no_offers))
 
-    offers = @gateway.load_offers
+    offers = @gateway.load_offers.offers
     assert_equal [], offers
   end
 
@@ -19,7 +23,7 @@ class TestFyberGateway < Minitest::Test
     WebMock.stub_request(:get, @fixture["url"])
       .to_return(fixed_response(:raw_with_offers))
 
-    offers = @gateway.load_offers
+    offers = @gateway.load_offers.offers
     assert_equal 1, offers.size
     assert_equal 13_554, offers[0]["offer_id"]
   end

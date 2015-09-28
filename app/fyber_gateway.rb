@@ -1,7 +1,7 @@
 require "net/http"
-require "json"
 
 require "fyber_gateway/offers_request"
+require "fyber_gateway/offers_response"
 require "fyber_gateway/signature_validator"
 
 # Main interface to communicate with Fyber API from the application
@@ -26,26 +26,23 @@ class FyberGateway
     request = OffersRequest.new(params, api_key)
     response = Net::HTTP.get_response(URI(request.url))
     body = read_response(response)
-    body["offers"]
+    body
   end
 
   private
 
   def read_response(response)
-    fail(ResponseInvalidError, "Response body is empty") unless response.body
-
-    response.body.freeze
+    offers_response = OffersResponse.new(response.body)
+    # In the real system we would add logging here and use notifications service to notify about the issue
+    # but we don't want to show the message returned from the server to the end user
+    fail(ResponseInvalidError, "HTTP status: #{response.code}") if response.code != "200"
 
     signature = response["X-Sponsorpay-Response-Signature"]
-    body = JSON.parse(response.body)
-
-    fail(ResponseInvalidError, body["message"]) if response.code != "200"
-
     unless SignatureValidator.new(signature, response.body, api_key).valid?
       fail SignatureInvalidError, "Invalid response signature"
     end
 
-    body
+    offers_response
   end
 
   attr_reader :api_key, :params
