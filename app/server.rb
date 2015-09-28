@@ -3,6 +3,7 @@ $LOAD_PATH.unshift("./app")
 require "cuba"
 require "cuba/safe"
 require "cuba/render"
+require "cuba/contrib"
 require "tilt/erb"
 require "erb"
 
@@ -13,6 +14,7 @@ Cuba.use Rack::Session::Cookie, key: "offers-loader-session", secret: Config.sec
 
 Cuba.plugin Cuba::Safe
 Cuba.plugin Cuba::Render
+Cuba.plugin Cuba::Prelude
 
 Cuba.settings[:render][:template_engine] = "erb"
 Cuba.settings[:render][:views] = "app/views/"
