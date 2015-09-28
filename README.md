@@ -24,6 +24,7 @@ Testing
 * [Minitest](https://github.com/seattlerb/minitest) for unit and acceptance testing
 * [Capybara](https://github.com/jnicklas/capybara) for acceptance testing of the web application
 * [Webmock](https://github.com/bblimke/webmock) to mock API calls in tests with some pre-recorded responses
+* [Timecop](https://github.com/travisjeffery/timecop) is used for freezing time in acceptance tests to make it possible to mock web requests (HashKey is changing depending on parameters, one of which is the timestamp)
 
 All of the classes are covered with unit tests.
 There is also an acceptance test, which simulates user input and verifies output.
