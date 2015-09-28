@@ -25,6 +25,8 @@ class FyberGateway
   def read_response(response)
     fail(ResponseInvalidError, "Response body is empty") unless response.body
 
+    response.body.freeze
+
     signature = response["X-Sponsorpay-Response-Signature"]
     body = JSON.parse(response.body)
 

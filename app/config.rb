@@ -4,6 +4,10 @@ class Config
       ENV["API_KEY"]
     end
 
+    def secret
+      ENV["SECRET"]
+    end
+
     def default_params
       {
         appid: ENV["APPID"],

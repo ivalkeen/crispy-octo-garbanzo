@@ -1,6 +1,26 @@
-<h1 class="page-header text-center">Results<h1>
+<h1 class="page-header text-center">Offers</h1>
 
 <div class="container">
-  <div class="row">
-  </div>
+  <% if @offers.size == 0 %>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert alert-info">
+          <p>No offers available</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% @offers.each do |offer| %>
+    <div class="row">
+      <div class="col-xs-3 col-sm-2 col-md-2 col-lg-1">
+        <img class="img-responsive img-thumbnail" src="<%= offer["thumbnail"]["lowres"] %>" alt="<%= offer["title"] %>" />
+      </div>
+      <div class="col-xs-9 col-sm-10 col-md-10 col-lg-11">
+        <h4><%= offer["title"] %></h4>
+        <p>Payout: <%= offer["payout"] %></p>
+      </div>
+    </div>
+    <hr />
+  <% end %>
 </div>

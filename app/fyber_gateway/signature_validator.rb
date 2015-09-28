@@ -9,7 +9,7 @@ class FyberGateway
     end
 
     def valid?
-      buffer = body.clone
+      buffer = body.dup
       buffer << api_key
       expected = Digest::SHA1.hexdigest(buffer)
       expected == signature

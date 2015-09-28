@@ -1,10 +1,15 @@
+$LOAD_PATH.unshift("./app")
+
 require "cuba"
 require "cuba/safe"
 require "cuba/render"
 require "tilt/erb"
 require "erb"
 
-Cuba.use Rack::Session::Cookie, key: "offers-loader-session", secret: "__a_very_long_string__"
+require "config"
+require "fyber_gateway"
+
+Cuba.use Rack::Session::Cookie, key: "offers-loader-session", secret: Config.secret
 
 Cuba.plugin Cuba::Safe
 Cuba.plugin Cuba::Render
@@ -30,7 +35,30 @@ Cuba.define do
 
   on post do
     on root do
-      render("results")
+      on param("uid") do |uid|
+        params = Config.default_params.merge(
+          timestamp: Time.now.utc.to_i,
+          uid: uid,
+          page: req.POST["page"],
+          pub0: req.POST["pub0"],
+        )
+
+        begin
+          @offers = FyberGateway.new(params, Config.api_key).load_offers
+          render("results")
+        rescue FyberGateway::SignatureInvalidError => e
+          @error = e.message
+          render("form")
+        rescue FyberGateway::ResponseInvalidError => e
+          @error = "Server responded with error: #{e.message}"
+          render("form")
+        end
+      end
+
+      on true do
+        @error = "Please, provide UID"
+        render("form")
+      end
     end
   end
 end

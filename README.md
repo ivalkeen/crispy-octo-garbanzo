@@ -14,5 +14,8 @@ Technical decisions
 TODO
 ----
 
-* Add configuration management
-* Implement API access
+* Implement XSS protection when rendering results and errors
+* Document code using YARD
+* Update README to describe all decisions
+* Push code to github
+* Deploy app to heroku

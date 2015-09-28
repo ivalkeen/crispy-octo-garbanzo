@@ -4,7 +4,7 @@
 api_key: "e95a21621a1865bcbae3bee89c4d4f84"
 
 params:
-  appid: 157
+  appid: "157"
   uid: "player1"
   ip: "212.45.111.17"
   locale: "de"
