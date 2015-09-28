@@ -16,7 +16,6 @@ from the rest of the system
 TODO
 ----
 
-* Document code using YARD
 * Update README to describe all decisions
 * Push code to github
 * Deploy app to heroku
