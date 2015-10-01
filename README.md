@@ -45,3 +45,29 @@ Hosting
 -------
 
 Heroku was chosen for deployment as the simplest (and free) option
+
+Using locally
+-------------
+
+1. `bundle install`
+
+2. Create `.env` file with the following content:
+
+    ```
+    API_KEY=Your API key
+    APPID=Your application ID
+    DEVICE_ID=Device ID to be used
+    IP=IP addess
+    LOCALE=Locale
+    OFFER_TYPES=Offer types to fetch
+    SECRET=Rack session secret (just a random string)
+    ```
+
+3. Start puma server:
+
+   ```
+   bin/puma config.ru -b tcp://127.0.0.1:3000
+   ```
+
+4. Open browser and navigate to `http://localhost:3000`
+
