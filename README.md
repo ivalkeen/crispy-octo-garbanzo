@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ivalkeen/crispy-octo-garbanzo.svg)](https://travis-ci.org/ivalkeen/crispy-octo-garbanzo)
+
 crispy-octo-garbanzo
 ====================
 
